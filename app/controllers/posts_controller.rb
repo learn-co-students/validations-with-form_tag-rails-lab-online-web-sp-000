@@ -9,10 +9,16 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    @post.title = params[:title]
+    @post.content = params[:content]
+    @post.category = params[:category]
 
-    @post.update(post_params)
-
-    redirect_to post_path(@post)
+    if @post.valid?
+      @post.update(post_params)
+      redirect_to post_path(@post)
+    else
+      render :edit
+    end
   end
 
   private
