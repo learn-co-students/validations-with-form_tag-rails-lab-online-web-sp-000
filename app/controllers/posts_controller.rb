@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 
    else 
 
-    render: edit
+    render :edit
    end
   end
 
