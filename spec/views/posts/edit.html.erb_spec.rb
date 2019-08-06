@@ -4,7 +4,7 @@ RSpec.describe "posts/edit", type: :feature do
     Post.create!(title: "Something", category: "Fiction", content: valid_content)
   end
 
-  before(:each) { visit edit_post_path(article) }
+  before(:each) {visit edit_post_path(article) }
 
   describe "a blank form" do
     it "does not render an error list" do
