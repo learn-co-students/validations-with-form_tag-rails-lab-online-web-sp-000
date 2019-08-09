@@ -25,7 +25,11 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
 
-    if Post.new(post_params).valid?
+    @post.title = params[:title]
+    @post.content = params[:content]
+    @post.category = params[:category]
+    
+    if @post.valid?
       @post.update!(post_params)
       redirect_to post_path(@post)
     else
