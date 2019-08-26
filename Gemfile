@@ -13,7 +13,9 @@ gem 'bootsnap'
 group :development, :test do
   gem 'pry'
   gem 'capybara'
+  
 end
 
 group :development do
+  gem 'web-console'
 end
