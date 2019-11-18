@@ -1,7 +1,4 @@
 class AuthorsController < ApplicationController
-  def show
-    @author = Author.find(params[:id])
-  end
 
   def new
     @author = Author.new
@@ -15,6 +12,10 @@ class AuthorsController < ApplicationController
     else 
       render :new 
     end 
+  end
+
+  def show
+    @author = Author.find(params[:id])
   end
 
   private

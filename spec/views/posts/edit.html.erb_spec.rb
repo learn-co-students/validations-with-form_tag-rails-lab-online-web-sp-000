@@ -3,7 +3,6 @@ RSpec.describe "posts/edit", type: :feature do
   let(:article) do
     Post.create!(title: "Something", category: "Fiction", content: valid_content)
   end
-
   before(:each) { visit edit_post_path(article) }
 
   describe "a blank form" do
