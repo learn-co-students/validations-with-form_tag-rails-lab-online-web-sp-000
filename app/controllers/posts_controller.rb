@@ -27,8 +27,13 @@ class PostsController < ApplicationController
     @post.content = params[:content]
     @post.category = params[:category]
 
+<<<<<<< HEAD
     if @post.valid?
       @post.save
+=======
+    if @post.update(post_params)
+      @post.update(post_params)
+>>>>>>> 2db145311537aa93e9ba1ad64f32686a2e6eb83e
       redirect_to post_path(@post)
     else
       render :edit
