@@ -1,17 +1,17 @@
-<h2>Create an Author</h2>
-<%= form_tag authors_path, method: "post" do %>
-  <% if @author.errors.any? %>
-    <div id="error_explanation">
-      <h3>There were some errors:</h3>
-      <ul>
-        <% @author.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<h2>Editing "<%= @author.name %>"</h2>
+<%= form_tag author_path(@author), method: "patch" do %>
+    <% if @author.errors.any? %>
+        <div id="error_explanation">
+            <h3>There was some errors:</h3>
+            <ul> 
+                <% @author.errors.full_messages.each do |message| %>
+                    <% message %>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
 
-  <% if @author.errors[:name].empty? %>
+    <% if @author.errors[:name].empty? %>
     <div class="field">
   <% else %>
     <div class="field_with_errors">
@@ -35,8 +35,9 @@
     <div class="field_with_errors">
   <% end %>
     <%= label_tag "phone_number", "Phone Number" %>
-    <%= text_field_tag "phone_number", @author.phone_number %>
+    <br />
+    <%= text_area_tag "phone_number", @author.phone_number %>
   </div>
-
-  <%= submit_tag "Create" %>
+  <%= submit_tag "Update" %>
 <% end %>
+
