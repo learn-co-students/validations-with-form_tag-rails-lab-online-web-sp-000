@@ -12,21 +12,32 @@
     </div>
   <% end %>
 
-  <% if @author.errors[:name].empty? %>
-    <div class="field">
+  <%unless @author.errors[:name].empty? %>
+    <div class="field_with_errors">
   <%else%> 
-    <div class="field_with_errors">' 
+    <div class="field">
   <%end%>
+
     <%= label_tag "name", "Name" %>
     <%= text_field_tag "name", @author.name %>
   </div>
 
-  <%= @author.errors[:email].empty? ? '<div class="field">' : '<div class="field_with_errors">' %>
+  <%unless @author.errors[:email].empty? %>
+    <div class="field_with_errors">
+  <%else%> 
+    <div class="field">
+  <%end%>
+
     <%= label_tag "email", "Email" %>
     <%= text_field_tag "email", @author.email %>
   </div>
 
-  <%= @author.errors[:phone_number].empty? ? '<div class="field">' : '<div class="field_with_errors">' %>
+  <%unless @author.errors[:phone_number].empty? %>
+    <div class="field_with_errors">
+  <%else%> 
+    <div class="field">
+  <%end%>
+  
     <%= label_tag "phone_number", "Phone Number" %>
     <%= text_field_tag "phone_number", @author.phone_number %>
   </div>
