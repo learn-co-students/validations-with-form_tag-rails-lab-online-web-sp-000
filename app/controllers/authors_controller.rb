@@ -10,7 +10,11 @@ class AuthorsController < ApplicationController
   def create
     @author = Author.create(author_params)
 
-    redirect_to author_path(@author)
+    if @author
+      redirect_to author_path(@author)
+    else
+      redirect_to author_new_path
+    end
   end
 
   private
