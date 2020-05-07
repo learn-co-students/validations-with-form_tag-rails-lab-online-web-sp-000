@@ -24,7 +24,7 @@
 
   <%= @author.errors[:phone_number].empty? ? '<div class="field">' : '<div class="field_with_errors">' %>
     <%= label_tag "phone_number", "Phone Number" %>
-    <%= text_field_tag "phone_number", "@author.phone_number" %>
+    <%= text_field_tag "phone_number", @author.phone_number %>
   </div>
 
   <%= submit_tag "Create" %>
