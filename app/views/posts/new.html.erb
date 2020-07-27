@@ -1,4 +1,4 @@
-<h2>Editing "<%= @post.title %>"</h2>
+<h2>Create a Post</h2>
 
 <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -10,7 +10,7 @@
     </div>
 <% end %>
 
-<%= form_tag post_path(@post), method: "patch" do %>
+<%= form_tag posts_path, method: "post" do %>
   <div class="field<%= ' field_with_errors' if @post.errors[:title].any? %>">
     <%= label_tag "title", "Title" %>
     <%= text_field_tag "title", @post.title %>
@@ -33,4 +33,3 @@
   </div>
   <%= submit_tag "Update" %>
 <% end %>
-
