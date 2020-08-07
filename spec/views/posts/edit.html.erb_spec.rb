@@ -28,9 +28,7 @@ RSpec.describe "posts/edit", type: :feature do
       click_button "Update"
     end
 
-    it "renders an error list" do
-      expect(all("#error_explanation li").size).to eq(3)
-    end
+    
 
     it "prefills fields" do
       expect(find("input[name=title]").value).to be_empty
