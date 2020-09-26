@@ -1,16 +1,33 @@
 class AuthorsController < ApplicationController
-  def show
-    @author = Author.find(params[:id])
-  end
+  before_action :set_author!, only: [:show, :edit, :update]
 
   def new
-    @author = Author.new
+    @form_obj = Author.new
+  end
+
+  def show
+  end
+
+  def edit
   end
 
   def create
-    @author = Author.create(author_params)
+    @form_obj = Author.new(author_params)
+    if @form_obj.valid?
+      @form_obj.save
+      redirect_to author_path(@form_obj)
+    else
+      render :new
+    end
+  end
 
-    redirect_to author_path(@author)
+  def update
+    if @form_obj.update(author_params)
+      redirect_to author_path(@form_obj)
+    else
+      render :edit
+    end
+
   end
 
   private
@@ -18,4 +35,9 @@ class AuthorsController < ApplicationController
   def author_params
     params.permit(:name, :email, :phone_number)
   end
+
+  def set_author!
+    @form_obj = Author.find(params[:id])
+  end
+
 end

@@ -1,19 +1,31 @@
-<h2>Create an Author</h2>
-<%= form_tag authors_path, method: "post" do %>
-  <div class="field">
+<h2>Create an <%= @form_obj.class.name %></h2>
+<%= form_tag("/authors") do %>
+  <% if @form_obj.errors.any? %>
+    <div id="error_explanation">
+      <h2>There were some errors:</h2>
+      <ul>
+        <% @form_obj.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+ 
+  <div class="field<%= ' field_with_errors' if @form_obj.errors[:name].any? %>">
     <%= label_tag "name", "Name" %>
-    <%= text_field_tag "name" %>
+    <%= text_field_tag "name", @form_obj.name %>
   </div>
-
-  <div class="field">
+ 
+  <div class="field<%= ' field_with_errors' if @form_obj.errors[:email].any? %>">
     <%= label_tag "email", "Email" %>
-    <%= text_field_tag "email" %>
+    <%= text_field_tag "email", @form_obj.email %>
   </div>
-
-  <div class="field">
+ 
+  <div class="field<%= ' field_with_errors' if @form_obj.errors[:phone_number].any? %>">
     <%= label_tag "phone_number", "Phone Number" %>
-    <%= text_field_tag "phone_number" %>
+    <%= text_field_tag "phone_number", @form_obj.phone_number %>
   </div>
-
+ 
   <%= submit_tag "Create" %>
 <% end %>
