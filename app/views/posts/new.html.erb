@@ -1,6 +1,6 @@
-<h2>Editing "<%= @post.title %>"</h2>
+<h2>New post form</h2>
 
-<%= form_tag post_path(@post), method: "patch" do %>
+<%= form_tag posts_path, method: "post" do %>
 
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -35,4 +35,3 @@
   </div>
   <%= submit_tag "Update" %>
 <% end %>
-
