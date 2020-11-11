@@ -1,0 +1,1 @@
+There was lab solution and that is how I written it at first, but I found more elegant solution with <% if @author.errors[:name].empty? %> and from now on, that will be the one I will use.
