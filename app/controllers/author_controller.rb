@@ -1,4 +1,4 @@
-class AuthorsController < ApplicationController
+class AuthorController < ApplicationController
     before_action :set_author, only: [:show, :update, :edit, :destroy]
 
   
@@ -27,7 +27,7 @@ end
   private
 
   def author_params
-    params.require(:author).permit(:name, :email, :phone_number)
+    params.require(:author).permit(:email, :phone_number)
   end
   
   def set_author 
