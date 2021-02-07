@@ -40,7 +40,7 @@ private
     
       
   def post_params 
-    params.require(:post).permit(:category, :content )
+    params.permit(:category, :content )
   end 
 
 end
