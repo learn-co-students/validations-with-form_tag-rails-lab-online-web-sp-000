@@ -1,6 +1,16 @@
 class PostsController < ApplicationController
     before_action :set_post, only: [:show, :update, :edit, :destroy]
 
+     def create 
+     @post = Post.new 
+     if @post.valid?
+       @post.create(post_params)
+       redirect_to post_path(@post)
+     else
+       render :new
+     end
+   end 
+
   
   def show
     @post = Post.find(params[:id])
