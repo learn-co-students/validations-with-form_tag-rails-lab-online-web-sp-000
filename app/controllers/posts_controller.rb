@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+    before_action :set_post, only: [:show, :update, :edit, :destroy]
+
   def show
     @post = Post.find(params[:id])
   end
@@ -20,4 +22,9 @@ class PostsController < ApplicationController
   def post_params
     params.permit(:title, :category, :content)
   end
+  
+  def set_post 
+    @post = Post.find(params[:id])
+  end 
+
 end

@@ -1,6 +1,5 @@
 class PostController < ApplicationController
-  before_action 
-    set_post, only: [:show, :update, :edit, :destroy]
+  before_action :set_post, only: [:show, :update, :edit, :destroy]
   
    def create 
    end 
@@ -21,6 +20,7 @@ class PostController < ApplicationController
     redirect_to post_path(@post)
   end
 
+private
     def set_post 
       @post = Post.find(params[:id])
     end 

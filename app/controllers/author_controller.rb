@@ -1,7 +1,19 @@
 class AuthorController < ApplicationController
-  before_action :set_author, only: [:show, :update, :edit, :destroy]
+  before_action :set_post, only: [:show, :update, :edit, :destroy]
 
-def create 
+
+def index 
+  @authors - Author.all 
+end 
+
+  def create
+    @author = Author.new(author_params)
+    if Author.valid?
+      @author.save 
+    redirect_to author_path
+  else 
+    render :new
+  end
 end 
 
 def edit 
@@ -17,7 +29,7 @@ def show
 end 
 
 private 
-  def set_author 
+  def set_post 
     @author = Author.find(params[:id])
   end 
 end
