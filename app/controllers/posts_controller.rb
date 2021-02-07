@@ -1,10 +1,14 @@
 class PostsController < ApplicationController
     before_action :set_post, only: [:show, :update, :edit, :destroy]
 
-     def create 
-     @post = Post.new 
+  def index 
+    @posts = Post.all
+  end 
+  
+  def create 
+     @post = Post.new(post_params)
      if @post.valid?
-       @post.create(post_params)
+       @post.new
        redirect_to post_path(@post)
      else
        render :new
@@ -33,7 +37,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:title, :category, :content)
+    params.require(:post).permit(:title, :category, :content)
   end
   
   def set_post 

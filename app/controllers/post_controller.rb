@@ -1,6 +1,10 @@
 class PostController < ApplicationController
   before_action :set_post, only: [:show, :update, :edit, :destroy]
   
+   def index 
+     @posts = Post.all 
+   end 
+   
    def create 
      @post = Post.new 
      if @post.valid?
